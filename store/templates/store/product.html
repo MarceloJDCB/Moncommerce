@@ -1,0 +1,30 @@
+{% extends "store/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="row" style="padding-top:10vh">
+    <div class="col-4">
+        <img style="width:100%" src="{{ product.frame_html_base64 }}"></br>
+    </div>
+
+    <div class="col">
+        <b style="font-size:58px">{{ product.name }}</b></br>
+        <p>{{ product.description }}</p>
+    </div>
+    
+    <div class="col align-self-center">
+        
+        <b style="font-size:48px">B$ {{ product.price }}</b></br>
+        <b>à vista no cartão de crédito</b></br></br>
+        {% if product.supply > 0 %}
+        <button style="width:50%" class="btn btn-warning btn-lg">Comprar</button>
+        {%else%}
+        <button style="width:50%" class="btn btn-warning btn-lg" disabled>Comprar</button></br>
+        <b>não temos {{product.name|lower}} no estoque</br> nesse momento :(</b>
+        {%endif%}
+        
+    </div>
+</div>
+{% endblock %}
