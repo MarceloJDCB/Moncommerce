@@ -15,16 +15,35 @@
     </div>
     
     <div class="col align-self-center">
-        
+        {% csrf_token %}
         <b style="font-size:48px">B$ {{ product.price }}</b></br>
         <b>à vista no cartão de crédito</b></br></br>
         {% if product.supply > 0 %}
-        <button style="width:50%" class="btn btn-warning btn-lg">Comprar</button>
+        <button onclick="buy()" style="width:50%" class="btn btn-warning btn-lg">Comprar</button>
         {%else%}
         <button style="width:50%" class="btn btn-warning btn-lg" disabled>Comprar</button></br>
         <b>não temos {{product.name|lower}} no estoque</br> nesse momento :(</b>
         {%endif%}
-        
+        <script>
+            function buy(){
+                const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                const axios_instance = axios.create({
+                    baseURL:'http://127.0.0.1:8000/product/',
+                    headers: {'X-CSRFToken': csrftoken},
+                });
+                axios_instance.post('buy-product', {
+                        product: '{{ product.id }}'
+                    })
+                    .then(function (response) {
+                        alert(response.data['response']);
+                        window.location.reload(true)
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    });
+            }
+
+        </script>
     </div>
 </div>
 {% endblock %}

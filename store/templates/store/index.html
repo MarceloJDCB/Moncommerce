@@ -26,4 +26,23 @@
       <span class="visually-hidden">Next</span>
     </button>
 </div>
+<div class="row" style="text-align:center">
+    {% for product in last_products %}
+    
+    <div class="col-sm" style="padding-top:10vh">
+    <a style="text-decoration:none;color:rgba(0, 0, 0, 0.9)" href="/product/{{product.id}}">
+
+        <img height="200" width="200" src="{{ product.frame_html_base64 }}"></br>
+        <b style="font-size:30px">{{ product.name }}</b></br>
+        <b>B$ {{ product.price }}</b></br>
+        {% if product.supply == 0 %}
+        <div style="width:100%;padding-top:10px" class="alert alert-warning">
+        <b>sem estoque :(</b>
+        </div>  
+        {% endif %}
+    </a>
+
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

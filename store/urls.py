@@ -13,6 +13,8 @@ urlpatterns = [
     re_path(r'^', include(router.urls)),
     re_path(r'index',views.index),
     re_path(r'products',views.products),
-    re_path(r'product/(?P<product>[-\w]+)/$',views.product)
+    re_path(r'product/(?P<product>[-\w]+)/$',views.product),
+    re_path(r'product/buy-product',views.ProductAPIView.buy_product)
+    
     
 ]
