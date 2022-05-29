@@ -2,10 +2,4 @@ venv/
 core/.env
 core/__pycache__/
 store/__pycache__/
-store/migrations/
 userapp/__pycache__/
-userapp/migrations/
-
-media/imgs/
-
-db.sqlite3
