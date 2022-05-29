@@ -7,7 +7,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(max_digits=5,decimal_places=2)
-    image = models.FileField(upload_to='imgs')
+    image = models.FileField(upload_to='static/imgs')
     supply = models.IntegerField()
 
     @property
@@ -16,7 +16,7 @@ class Product(models.Model):
     
     @property
     def frame_base64(self):
-        path = "media/" + str(self.image)
+        path = "static/" + str(self.image)
         try:
             with open(path, 'rb') as f:
                 content = f.read()
@@ -27,7 +27,7 @@ class Product(models.Model):
 
     @property
     def frame_html_base64(self):
-        path = "media/" + str(self.image)
+        path = "static/" + str(self.image)
         try:
             with open(path, 'rb') as f:
                 content = f.read()

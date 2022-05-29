@@ -1,5 +1,5 @@
 {% extends "store/base.html" %}
-
+{% load static %}
 
 {% block content %}
 
@@ -7,13 +7,13 @@
   <center>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img id="img-carousel" src="/media/banners/banner.png" class="d-block w-100" alt="...">
+        <img id="img-carousel" src="{% static 'banners/banner.png' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img id="img-carousel" src="/media/banners/banner2.png" class="d-block w-100" alt="...">
+        <img id="img-carousel" src="{% static 'banners/banner2.png' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img id="img-carousel" src="/media/banners/banner3.png" class="d-block w-100" alt="...">
+        <img id="img-carousel" src="{% static 'banners/banner3.png' %}" class="d-block w-100" alt="...">
       </div>
     </div>
   </center>
