@@ -22,12 +22,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(
         r'',
-        include(("userapp.urls", "userapp"), namespace="userapp")
-    ),
-    re_path(
-        r'',
         include(("store.urls", "store"), namespace="store")
         ),
+
+    re_path(
+        r'',
+        include(("userapp.urls", "userapp"), namespace="userapp")
+    ),
+
    
     
 ]
