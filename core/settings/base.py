@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 
-CORS_ALLOWED_ORIGINS = ["https://moncommerce342.herokuapp.com/"]
+CORS_ALLOWED_ORIGINS = ["https://moncommerce342.herokuapp.com/","https://moncommerce342.herokuapp.com/store/"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'core.urls'
